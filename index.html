@@ -9,22 +9,17 @@
 <body>
     <script src = "https://spelprogrammering.nu/simple.js"> 
        rectangle(5, 5, totalWidth, totalHeight, "black");
-       
-       
        var zombies= [];
        var i = 0;
-       while (i < 100)
-       
+       while (i<10)
        {
            zombies.push({ x: random(totalWidth), y: random(totalHeight), speed : random(1,5)});
-           
            i += 1;
        }
-       
        var zombie = { x: random(totalWidth), y: random(totalHeight), speed : random(1,5)} // position på zombie 
        hideMouse(); 
        
-       playSound();
+       // playSound();
        function update(){
          fill("black");
        
@@ -33,8 +28,8 @@
            {
                var zombie = zombies[i];
            
-               picture(zombie.x, zombie.y, "http://spelprogrammering.nu/bilder/zombie.png")
-               picture(mouse.x, mouse.y)
+               picture(zombie.x, zombie.y, "bilder/zombie.png")
+               picture(mouse.x, mouse.y, "bilder/nedladdning.png")
            
                if (zombie.x < mouse.x)    // zombie går åt vänster om mouse 
                  zombie.x += zombie.speed;  // det här gör att zombie försöker att nå mouse 
@@ -48,7 +43,6 @@
            
                if(distance(mouse, zombie) < 5){
                    text(50,50,30,"Game over", "red")
-                   ("GAME OVER !", "red")
                    stopUpdate();
                    showMouse();
                }
