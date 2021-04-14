@@ -28,8 +28,8 @@
            {
                var zombie = zombies[i];
            
-               picture(zombie.x, zombie.y, "bilder/zombie.png")
-               picture(mouse.x, mouse.y, "bilder/nedladdning.png")
+               picture(zombie.x, zombie.y, "bilder/man-zombie.png")
+               picture(mouse.x, mouse.y, "bilder/emoji.png")
            
                if (zombie.x < mouse.x)    // zombie går åt vänster om mouse 
                  zombie.x += zombie.speed;  // det här gör att zombie försöker att nå mouse 
@@ -41,8 +41,8 @@
                else
                  zombie.y -= zombie.speed;
            
-               if(distance(mouse, zombie) < 5){
-                   text(50,50,30,"Game over", "red")
+               if(distance(mouse, zombie) < 120){
+                   text(600,60,50,"Game over !", "red")
                    stopUpdate();
                    showMouse();
                }
