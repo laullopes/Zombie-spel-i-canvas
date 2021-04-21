@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
        rectangle(5, 5, totalWidth, totalHeight, "black"); // bakgrund 
        var zombies= [];
        var i = 0;
-       while (i<10)
+       while (i<5)
        {
            zombies.push({ x: random(totalWidth), y: random(totalHeight), speed : random(1,5)});
            i += 1;
@@ -22,7 +23,7 @@
          fill("black");
        
            var i = 0;
-           while(i<10)
+           while(i<5)
            {
                var zombie = zombies[i];
            
@@ -39,11 +40,6 @@
                else
                  zombie.y -= zombie.speed;
 
-              
-               if (keyboard.space) {
-                 stopUpdate() 
-                 text(600, 70, 60, "Pausat", "white")
-               }
 
               
                if(distance(mouse, zombie) < 100){
