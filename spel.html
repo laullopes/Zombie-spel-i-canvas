@@ -14,7 +14,7 @@
        var i = 0;
        while (i < 5)
 
-       // var speed = random(0,5) // skapade den variablen för att kunna använda med spacebar. 
+      // var hast = random(1,5); // skapade den variablen för att kunna använda med spacebar. 
 
        {
            zombies.push({ x: random(totalWidth), y: random(totalHeight), speed: random(1,5)}); 
@@ -45,9 +45,9 @@
                  zombie.y -= zombie.speed;
                
                 
-               if(keyboard.space){
-                   zombie.speed = zombie.speed^1,5;
-               }
+              // if(keyboard.space){
+               //  hast = zombie.speed^1,5;
+             //  }
               
                if(distance(mouse, zombie) < 100){
                   text(489,150,80,"Game over !", "red");
