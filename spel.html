@@ -8,13 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    <script src = "https://spelprogrammering.nu/simple.js"> 
+    <script src = "https://koda.nu/simple.js"> 
        rectangle(5, 5, totalWidth, totalHeight, "black"); // bakgrundsfärg 
        var zombies= []; // Lista av zombies 
+       var addStyle = document. createElement("addStyle");
        var i = 0;
+       // var img = document.createElement("img");
        while (i < 5)
 
-      // var hast = random(1,5); // skapade den variablen för att kunna använda med spacebar. 
+      // var speed = random(1,5); // skapade den variablen för att kunna använda med spacebar. 
 
        {
            zombies.push({ x: random(totalWidth), y: random(totalHeight), speed: random(1,5)}); 
@@ -28,6 +30,7 @@
            fill("black");
            var i = 0;
            while (i < 5)
+        
            {
                var zombie = zombies[i];
            
@@ -43,11 +46,11 @@
                  zombie.y += zombie.speed;  
                else
                  zombie.y -= zombie.speed;
-               
+              
+               if (keyboard.space){
+                 addStyle("background:  (rgb(240, 128, 128);");
+               }
                 
-              // if(keyboard.space){
-               //  hast = zombie.speed^1,5;
-             //  }
               
                if(distance(mouse, zombie) < 100){
                   text(489,150,80,"Game over !", "red");
