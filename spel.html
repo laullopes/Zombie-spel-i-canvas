@@ -9,21 +9,25 @@
 </head>
 <body>
     <script src = "https://spelprogrammering.nu/simple.js"> 
-       rectangle(5, 5, totalWidth, totalHeight, "black"); // bakgrund 
-       var zombies= [];
+       rectangle(5, 5, totalWidth, totalHeight, "black"); // bakgrundsfärg 
+       var zombies= []; // Lista av zombies 
        var i = 0;
-       while (i<5)
+       while (i < 5)
+
+       // var speed = random(0,5) // skapade den variablen för att kunna använda med spacebar. 
+
        {
-           zombies.push({ x: random(totalWidth), y: random(totalHeight), speed : random(1,5)});
+           zombies.push({ x: random(totalWidth), y: random(totalHeight), speed: random(1,5)}); 
            i += 1;
        }
-       var zombie = { x: random(totalWidth), y: random(totalHeight), speed : random(1,5)} // position på zombie 
+       var zombie =  {x: random(totalWidth), y: random(totalHeight), speed: random(1,5)}
        hideMouse(); 
-       function update(){
-         fill("black");
-       
+       function update()
+       {
+           clearScreen();
+           fill("black");
            var i = 0;
-           while(i<5)
+           while (i < 5)
            {
                var zombie = zombies[i];
            
@@ -39,14 +43,17 @@
                  zombie.y += zombie.speed;  
                else
                  zombie.y -= zombie.speed;
-
-
+               
+                
+               if(keyboard.space){
+                   zombie.speed = zombie.speed^1,5;
+               }
               
                if(distance(mouse, zombie) < 100){
-                   text(550,60,50,"Game over !", "red")
-                   stopUpdate();
-                   showMouse();
-               }  
+                  text(489,150,80,"Game over !", "red");
+                  stopUpdate();
+                  showMouse();
+                }  
                i += 1;
                            
            }

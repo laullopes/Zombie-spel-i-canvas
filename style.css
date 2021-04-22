@@ -1,13 +1,22 @@
-rubrik{
+.rubrik{
     display: flex;
     justify-content: center;
-    font-size: 25px;
+    font-size: 50px;
     font-weight: 25;
     color: red;
     padding: 20px;
     margin: 20px;
-    font-family: 'Annie Use Your Telescope';   
     align-content: space-between;
     letter-spacing: 2px;
-
 }
+
+
+.menu{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    text-decoration: none;
+    color: black;
+}
+
+
