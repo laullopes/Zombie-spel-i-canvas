@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src = "https://koda.nu/simple.js"> 
+       // rectangle(5, 5, totalWidth, totalHeight, "black"); // bakgrundsfärg 
+       var zombies= []; // Lista av zombies 
+      
+       var i = 0;
+   
+       while (i < 8) // while satsen pushar 5 zombies till skärmen 
+
+       {
+           zombies.push({ x: random(totalWidth), y: random(totalHeight), speed: random(1,5)}); 
+           i += 1; 
+       }
+       var zombie =  {x: random(totalWidth), y: random(totalHeight), speed: random(1,5)} // variablen gjort för att skapa en zombie som har en viss hastighet och befinner sig någostans i skärmen. 
+       hideMouse(); // gömden musen för att lägga en bild på den ist 
+       function update() // Den här funktion gör att koden som ligger inuti spelas om 
+       {
+           clearScreen();
+           fill("black");
+           var i = 0;
+           while (i < 8)
+        
+           {
+               var zombie = zombies[i];
+           
+               picture(zombie.x, zombie.y, "bilder/man-zombie.png") 
+               picture(mouse.x, mouse.y, "bilder/emoji.png") // bilden som ersätter musen 
+                
+               // de här satserna gör att zombies försöker att nå mouse 
+               if (zombie.x < mouse.x)    // zombie går åt vänster och höger om mouse 
+                 zombie.x += zombie.speed;  
+               else
+                 zombie.x -= zombie.speed; 
+              
+               if (zombie.y < mouse.y)    // zombie går uppåt och nedåt 
+                 zombie.y += zombie.speed;  
+               else
+                 zombie.y -= zombie.speed;                
+              
+               if(distance(mouse, zombie) < 100){ // 100 px avstånd mellan mouse och zombie gör att dem krockar och då förlora man spelet
+                  text(489,150,80,"Game over !", "red"); // det här som kommer upp när man förlorar 
+                  stopUpdate(); // koden slutar att köra när zombie o musen träffar varandra 
+                  showMouse();
+                }  
+               i += 1;
+            
+               if(keyboard.space){
+                   zombie.speed = zombie.speed*1.01; // varje gång man trycker på spacebar så öka zombies hastigeheten
+               }
+           }
+       }
+    </script>
+ </body>
+</html> 
